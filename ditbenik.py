@@ -37,6 +37,8 @@ while i == 1:
   print("B: Met motorvoertuig")
   print("C: Met de fiets of lopende")
   antwoordtTwee = input("Antwoordt: ")
+  print("----------------------------------------------")
+  print(" ")
   if antwoordtTwee == "A" or antwoordtTwee == "a":
    print("Tja het openbaarvervoer is best handig ja.")
    print("Alleen het nadeel is dat je zelf niet kan bepalen wanneer die rijdt en dat je nu een mondkapje op moet.")
@@ -61,6 +63,8 @@ while i == 1:
   print("C: Ja, ik ben een pro.")
   print("D: Nee") 
   antwoordt3 = input("Antwoordt: ")
+  print("----------------------------------------------")
+  print(" ")
   if antwoordt3 == "A" or antwoordt3 == "a":
    print("Ah oke dat is mooi om te horen.")
    print("Mijn maker kan ook al wat basic.")
@@ -95,6 +99,8 @@ while i == 1:
 
 
  while e == 1:
+    print("----------------------------------------------")
+    print(" ")
     answer = input(username + ", wil jij dit programma nog een keer doen. Type Y/N ")
     if answer == "Y" or answer == "y":
         print('Oke laten we opnieuw beginnen.')
