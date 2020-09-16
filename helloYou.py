@@ -11,10 +11,10 @@ while i == 1:
   print(x)
   while e == 1:
     answer = input(username + ", wil jij dit programma nog een keer doen. Type Y/N ").lower()
-    if answer == "Y"or answer == "y":
+    if answer == "Y" or answer == "y":
         print('Okay lets start over')
         e += 1
-    elif answer == "N" or answer == "n" :
+    elif answer == "N" or answer == "n":
         print('Thank you, ' + username)
         i += 1
         break
