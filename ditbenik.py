@@ -17,6 +17,8 @@ while i == 1:
  print("B: nee")
  
  while x == 1:
+  print("----------------------------------------------")
+  print(" ")
   antwoordt = input("Antwoordt: ")
   if antwoordt == "a" or antwoordt == "A":
    print("Ah oke. Ik hoop dat je veel plezier op de school gaat beleven.")
@@ -28,6 +30,8 @@ while i == 1:
    print("Alsjeblieft type A of B")
 
  while x == 2:
+  print("----------------------------------------------")
+  print(" ")
   print("Hoe ga jij naar school toe?")
   print("A: Met openbaar vervoer")
   print("B: Met motorvoertuig")
@@ -49,6 +53,8 @@ while i == 1:
    print("Alsjeblieft type A, B of C")
 
  while x == 3:
+  print("----------------------------------------------")
+  print(" ")
   print("Weet jij al veel van progameren af?")
   print("A: Ja, ik ken al wat basic's.")
   print("B: Ja, ik ken al meerdere progameer talen.")
@@ -79,6 +85,8 @@ while i == 1:
 
  
  while x == 4:
+  print("----------------------------------------------")
+  print(" ")
   print("Dit is het einde van mij script.")
   print("Ik ben blij dat ik je heb kunnen ontmoeten.")
   print("Ik hoop je snel weer te zien in een van mijn makers andere programma's.")
