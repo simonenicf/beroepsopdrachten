@@ -1,26 +1,26 @@
 import sys
 import time
+from menu import Menu
+from game_engine import Console, Player
 
+console = Console()
+player = Player()
 start = True
-menu = " "
 name = " "
+trigger = 0
 start_sim = " "
 retry_input = " "
-gameover = 0
 bye = 0
-
-# The game menu
-def print_menu():
-    print (30 * "-" , "Text based adventure" , 30 * "-")
-    print ("1. start adventure (intro)")
-    print ("2. start adventure (no intro)")
-    print ("3. quit")
-    print (67 * "-")
 
 # Function to exit the game
 def quit():
     print("okay bye")
-    exit()
+    exit(0)
+
+# put the intro here
+def intro():
+    print("please put intro here")
+    adventure()
 
 # Start adventure
 def adventure():
@@ -30,19 +30,26 @@ def adventure():
     time.sleep(0.5)
     print("@: Oh sorry. I didn't expect that you where there.")
     time.sleep(0.5)
+    player.set_name(console.check_answer("So what is our name user?"))
+    print("Oh hi " + player.get_name(name) + ". It's nice to meet you.")
+    time.sleep(0.5)
     print("@: I'm escape simulator.")
     time.sleep(0.5)
     print("@: I'm here to teach you how it is to escape")
+    time.sleep(0.5)
     print("@: So shall we start the simulator?")
+    time.sleep(0.5)
     print("1. Yes")
+    time.sleep(0.5)
     print("2. No")
+    time.sleep(0.5)
     print(" ")
     print(67 * "-")
     print(" ")
     run()
 
 def run():
-    start_sim = input("Will you start the sim?: ").lower()
+    start_sim = console.check_answer("Will you start the sim?: ", ["1", "yes", "y", "2", "no", "n"]).lower()
     if start_sim == ("1") or start_sim == ("yes") or start_sim == ("y"):
         print("Nyaaa")
         Sim_start()
@@ -54,13 +61,6 @@ def run():
         print(67 * "-")
         print(" ")
         run2()
-    else:
-        print("Put in valid answer.")
-        print(" ")
-        run()
-
-def Sim_start():
-    print("hi")
 
 def run2():
     sure = input("Are you sure?: ").lower()
@@ -77,9 +77,7 @@ def run2():
         play_again()
     elif sure == ("2") or sure == ("no") or sure == ("n"):
         time.sleep(1)
-        print("okay boomer")
-        time.sleep(1)
-        quit()
+        retry()
     else:
         print("Plz enter valid answer")
 
@@ -88,17 +86,22 @@ def retry():
     print("So do you want to start the simulator?")
     print("1. yes")
     print("2. no")
-    retry_input = input("start simulator?: ").lower()
+    retry_input = console.check_answer("start simulator?: ", ["1", "2", "yes", "y", "no", "n"]).lower()
     if retry_input == ("1") or retry_input == ("yes") or retry_input == ("y"):
         print(" ")
+        Sim_start()
     elif retry_input == ("2") or retry_input == ("no") or retry_input == ("n"):
         print("@: ARE")
-        time.sleep(1)
+        time.sleep(0.5)
+        print("@: YOU")
+        time.sleep(0.5)
         print("@: KIDDING")
-        time.sleep(1)
+        time.sleep(0.5)
         print("@: ME!!!!!!!")
+        time.sleep(3)
         print("Good job you made the program so pissed that it blow it self up.")
         print("Now you can't enter the simulator anymore.")
+        print("GG player")
         print(67 * "-")
         print(" ")
         print("GAME OVER")
@@ -106,9 +109,9 @@ def retry():
         print("ENDING 2")
         print("BYE BYE SIMULATOR")
         play_again()
-    else:
-        print("Plz enter a valid answer.")
-        retry()
+
+def Sim_start():
+    print("hi")
 
 def play_again():
     print("Do you want to restart the adventure or go back to menu?")
@@ -130,17 +133,11 @@ def play_again():
     else:
         print("Plz enter valid answer")
         play_again()
-   
-# put the intro here
-def intro():
-    print("please put intro here")
-    adventure()
 
 # starts the game and menu
 while start == True:
-    print_menu()
-    print(" ")
-    menu = input("What do you want to do: ")
+    Menu.print_menu(Menu)
+    menu = console.check_answer("What do you want to do?", ["1", "intro", "start", "2", "skip", "quit", "3"])
     print(" ")
     if menu == ("1") or menu == ("intro") or menu == ("start"):
         intro()
@@ -148,5 +145,3 @@ while start == True:
         adventure()
     elif menu == ("quit") or menu == ("3"):
         quit()
-    else:
-        print("Plz enter a valid answer.")
